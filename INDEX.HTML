@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ian Kim - Your Problem Solving Marketing Partner</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #0b0f19;
+            color: #ffffff;
+        }
+        .page-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6rem 2rem;
+            position: relative;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .content-wrapper {
+            background-color: rgba(17, 24, 39, 0.75);
+            padding: 3rem;
+            border-radius: 1rem;
+            max-width: 1100px;
+            width: 100%;
+            text-align: center;
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+        .nav-link.active {
+            color: #60A5FA;
+            font-weight: 700;
+        }
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .portfolio-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.95);
+            z-index: 110;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 2rem;
+        }
+        .portfolio-image {
+            max-width: 90vw;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 0.5rem;
+        }
+        .portfolio-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+        .portfolio-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+    </style>
+</head>
+<body class="text-white">
+
+    <!-- Top Navigation Bar -->
+    <header class="bg-gray-900/90 backdrop-blur fixed top-0 left-0 right-0 z-50 border-b border-gray-700/50">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#page-1" class="text-2xl font-bold tracking-tight">Ian Kim</a>
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a href="#page-1" class="nav-link text-gray-300 hover:text-white transition-colors">Home</a>
+                <a href="#page-2" class="nav-link text-gray-300 hover:text-white transition-colors">Results</a>
+                <a href="#page-3" class="nav-link text-gray-300 hover:text-white transition-colors">Solutions</a>
+                <a href="#" id="portfolio-link" class="nav-link text-gray-300 hover:text-white transition-colors">Portfolio</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-gray-300 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4 space-y-2 bg-gray-900">
+            <a href="#page-1" class="block nav-link text-gray-300 hover:text-white transition-colors">Home</a>
+            <a href="#page-2" class="block nav-link text-gray-300 hover:text-white transition-colors">Results</a>
+            <a href="#page-3" class="block nav-link text-gray-300 hover:text-white transition-colors">Solutions</a>
+            <a href="#" id="mobile-portfolio-link" class="block nav-link text-gray-300 hover:text-white transition-colors">Portfolio</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page 1: Home -->
+        <section id="page-1" class="page-section">
+             <div class="content-wrapper mx-auto">
+                <h1 class="text-6xl md:text-8xl font-black mb-4 text-blue-400 tracking-wider">Ian Kim</h1>
+                <p class="text-base text-gray-400 font-bold uppercase tracking-widest mb-8">PROBLEM SOLVING MARKETING PARTNER</p>
+                
+                <div class="space-y-6 border-t border-gray-700/80 pt-6">
+                    <!-- 강조된 핵심 메시지 -->
+                    <p class="text-2xl md:text-3xl font-extrabold text-white leading-snug">
+                        I identify where growth gets stuck <br>
+                        <span class="text-blue-300">— then build the strategy to unlock it.</span>
+                    </p>
+                    
+                    <!-- 서브 철학 메시지 -->
+                    <div class="space-y-2 text-base md:text-lg text-gray-300 font-medium pt-2">
+                        <p>Setting precise goals for every consumer decision journey stage</p>
+                        <p>and delivering results that match.</p>
+                    </div>
+
+                    <p class="text-gray-100 text-lg font-bold pt-2">Proven by results across<br><span class="text-blue-400">Korea, Europe, and global markets</span></p>
+                </div>
+
+                <div class="mt-8 bg-gray-900/60 p-4 rounded-lg border border-gray-700 text-lg text-gray-200 font-medium">
+                    Problem → Strategy → Execution → Result
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 2: Results & Challenge → Approach → Result -->
+        <section id="page-2" class="page-section">
+            <div class="content-wrapper" style="max-width: 1200px;">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">RESULTS THAT SPEAK</h2>
+                <p class="text-gray-300 mb-12 text-lg">Proven results across the Consumer Decision Journey (CDJ)</p>
+                
+                <!-- Performance Grid Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center mb-16">
+                    <div class="bg-gray-800/80 p-6 rounded-2xl border border-gray-700 flex flex-col justify-between">
+                        <div>
+                            <span class="text-blue-400 font-bold text-xs uppercase tracking-widest bg-blue-900/40 px-3 py-1 rounded-full">AWARENESS</span>
+                            <p class="text-5xl font-black text-white mt-4 mb-2">40M</p>
+                            <p class="text-lg font-bold text-blue-300 mb-3">VIEWS</p>
+                        </div>
+                        <p class="text-sm text-gray-300 border-t border-gray-700 pt-4">US global brand campaign, achieving 40M views and 500,000 shares.</p>
+                    </div>
+
+                    <div class="bg-gray-800/80 p-6 rounded-2xl border border-gray-700 flex flex-col justify-between">
+                        <div>
+                            <span class="text-blue-400 font-bold text-xs uppercase tracking-widest bg-blue-900/40 px-3 py-1 rounded-full">ENGAGEMENT</span>
+                            <p class="text-5xl font-black text-white mt-4 mb-2">75M</p>
+                            <p class="text-lg font-bold text-blue-300 mb-3">VIEWS</p>
+                        </div>
+                        <p class="text-sm text-gray-300 border-t border-gray-700 pt-4">75M views with YouTube Star program - US, Brazil, Turkey, France</p>
+                    </div>
+
+                    <div class="bg-gray-800/80 p-6 rounded-2xl border border-gray-700 flex flex-col justify-between">
+                        <div>
+                            <span class="text-blue-400 font-bold text-xs uppercase tracking-widest bg-blue-900/40 px-3 py-1 rounded-full">ENGAGEMENT</span>
+                            <p class="text-5xl font-black text-white mt-4 mb-2">7.6M</p>
+                            <p class="text-lg font-bold text-blue-300 mb-3">VIEWS</p>
+                        </div>
+                        <p class="text-sm text-gray-300 border-t border-gray-700 pt-4">Generated 7.6M organic views with a Meta micro-influencer campaign in Korea.</p>
+                    </div>
+
+                    <div class="bg-gray-800/80 p-6 rounded-2xl border border-gray-700 flex flex-col justify-between">
+                        <div>
+                            <span class="text-blue-400 font-bold text-xs uppercase tracking-widest bg-blue-900/40 px-3 py-1 rounded-full">CONSIDERATION</span>
+                            <p class="text-5xl font-black text-white mt-4 mb-2">12</p>
+                            <p class="text-lg font-bold text-blue-300 mb-3">NO.1 NEWS</p>
+                        </div>
+                        <p class="text-sm text-gray-300 border-t border-gray-700 pt-4">Achieved the number one ranking on Naver news 12 times, generating 9.5 million views.</p>
+                    </div>
+
+                    <div class="bg-gray-800/80 p-6 rounded-2xl border border-gray-700 flex flex-col justify-between">
+                        <div>
+                            <span class="text-blue-400 font-bold text-xs uppercase tracking-widest bg-blue-900/40 px-3 py-1 rounded-full">TRAFFIC</span>
+                            <p class="text-5xl font-black text-white mt-4 mb-2">10M</p>
+                            <p class="text-lg font-bold text-blue-300 mb-3">VISITORS</p>
+                        </div>
+                        <p class="text-sm text-gray-300 border-t border-gray-700 pt-4">Generated 10 Million visitors with a Pan-EU digital campaign.</p>
+                    </div>
+
+                    <div class="bg-gray-800/80 p-6 rounded-2xl border border-gray-700 flex flex-col justify-between">
+                        <div>
+                            <span class="text-blue-400 font-bold text-xs uppercase tracking-widest bg-blue-900/40 px-3 py-1 rounded-full">ACQUISITION</span>
+                            <p class="text-4xl font-black text-white mt-4 mb-2">NO.1</p>
+                            <p class="text-lg font-bold text-blue-300 mb-3">DOWNLOAD</p>
+                        </div>
+                        <p class="text-sm text-gray-300 border-t border-gray-700 pt-4">No. 1 download in the Google Play Store's "Life" section.</p>
+                    </div>
+
+                    <div class="bg-gray-800/80 p-6 rounded-2xl border border-gray-700 flex flex-col justify-between md:col-span-3 max-w-md mx-auto w-full">
+                        <div>
+                            <span class="text-blue-400 font-bold text-xs uppercase tracking-widest bg-blue-900/40 px-3 py-1 rounded-full">CONVERSION</span>
+                            <p class="text-4xl font-black text-white mt-4 mb-2">30%</p>
+                            <p class="text-lg font-bold text-blue-300 mb-3">MARKET SHARE</p>
+                        </div>
+                        <p class="text-sm text-gray-300 border-t border-gray-700 pt-4">Micro-segmentation strategy achieving a peak market share of 30%.</p>
+                    </div>
+                </div>
+
+                <!-- Performance Video Section -->
+                <div class="bg-gray-900/90 p-8 rounded-2xl border border-gray-700 text-center mb-16">
+                    <h3 class="text-2xl font-bold mb-2 text-blue-400">THE PLAYBOOK BEHIND THE RESULTS</h3>
+                    <div class="aspect-w-16 aspect-h-9 w-full max-w-4xl mx-auto mb-4">
+                        <iframe src="https://www.youtube.com/embed/qTzylQZYRFg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-xl" style="aspect-ratio: 16/9;"></iframe>
+                    </div>
+                    <p class="text-base font-bold text-gray-400 tracking-wide mt-4">Strategy → Execution → Result</p>
+                </div>
+
+                <!-- Challenge → Approach → Result Section -->
+                <div class="text-left border-t border-gray-700 pt-12">
+                    <h3 class="text-3xl font-black mb-2 text-blue-400 text-center">CHALLENGE → APPROACH → RESULT</h3>
+                    <p class="text-gray-400 text-center mb-10">Key growth initiatives broken down by execution</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Case 1: CDJ Korea Mobile Users -->
+                        <div class="bg-gray-800/90 p-8 rounded-2xl border border-gray-700/80 shadow-lg flex flex-col justify-between">
+                            <div>
+                                <span class="text-blue-400 font-bold text-xs uppercase tracking-widest bg-blue-900/40 px-3 py-1 rounded-full">CONSIDERATION</span>
+                                <h4 class="text-2xl font-bold text-white mt-4 mb-6">CDJ KOREA MOBILE USERS</h4>
+                                
+                                <div class="space-y-4 text-sm text-gray-300">
+                                    <div class="border-l-2 border-red-500 pl-4">
+                                        <p class="text-xs font-bold uppercase tracking-wider text-red-400 mb-1">Challenge</p>
+                                        <p>Weak online presence and missed opportunities in active online research phases.</p>
+                                    </div>
+                                    <div class="border-l-2 border-blue-500 pl-4">
+                                        <p class="text-xs font-bold uppercase tracking-wider text-blue-400 mb-1">Approach</p>
+                                        <p>Shifted budget from banners to Naver/Daum SEO and 50+ IT power blogger partnerships.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-gray-700 bg-gray-900/40 -mx-6 -mb-6 p-6 rounded-b-2xl">
+                                <p class="text-xs font-bold uppercase tracking-wider text-green-400 mb-1">Result</p>
+                                <p class="text-base font-bold text-white">SOV 30%, Naver News #1 ranking 12 times.</p>
+                            </div>
+                        </div>
+
+                        <!-- Case 2: Disruptive Brand Film -->
+                        <div class="bg-gray-800/90 p-8 rounded-2xl border border-gray-700/80 shadow-lg flex flex-col justify-between">
+                            <div>
+                                <span class="text-blue-400 font-bold text-xs uppercase tracking-widest bg-blue-900/40 px-3 py-1 rounded-full">AWARENESS</span>
+                                <h4 class="text-2xl font-bold text-white mt-4 mb-6">DISRUPTIVE BRAND FILM — JASON STATHAM</h4>
+                                
+                                <div class="space-y-4 text-sm text-gray-300">
+                                    <div class="border-l-2 border-red-500 pl-4">
+                                        <p class="text-xs font-bold uppercase tracking-wider text-red-400 mb-1">Challenge</p>
+                                        <p>Promoting multi-products without standout specs using ineffective product ads.</p>
+                                    </div>
+                                    <div class="border-l-2 border-blue-500 pl-4">
+                                        <p class="text-xs font-bold uppercase tracking-wider text-blue-400 mb-1">Approach</p>
+                                        <p>Sold 'feeling' over features by establishing "Play" as the core theme with Jason Statham.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-gray-700 bg-gray-900/40 -mx-6 -mb-6 p-6 rounded-b-2xl">
+                                <p class="text-xs font-bold uppercase tracking-wider text-green-400 mb-1">Result</p>
+                                <p class="text-base font-bold text-white">40M+ views, 500K likes, 150K shares.</p>
+                            </div>
+                        </div>
+
+                        <!-- Case 3: Google & Meta x BTS -->
+                        <div class="bg-gray-800/90 p-8 rounded-2xl border border-gray-700/80 shadow-lg flex flex-col justify-between">
+                            <div>
+                                <span class="text-blue-400 font-bold text-xs uppercase tracking-widest bg-blue-900/40 px-3 py-1 rounded-full">GLOBAL GTM</span>
+                                <h4 class="text-2xl font-bold text-white mt-4 mb-6">GOOGLE & META × BTS — PAN-EUROPE</h4>
+                                
+                                <div class="space-y-4 text-sm text-gray-300">
+                                    <div class="border-l-2 border-red-500 pl-4">
+                                        <p class="text-xs font-bold uppercase tracking-wider text-red-400 mb-1">Challenge</p>
+                                        <p>Plateaued revenue growth and low brand preference across 9 culturally diverse EU markets.</p>
+                                    </div>
+                                    <div class="border-l-2 border-blue-500 pl-4">
+                                        <p class="text-xs font-bold uppercase tracking-wider text-blue-400 mb-1">Approach</p>
+                                        <p>Leveraged Google/Meta data targeting alongside Disney (Star Wars) and BTS partnerships.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-gray-700 bg-gray-900/40 -mx-6 -mb-6 p-6 rounded-b-2xl">
+                                <p class="text-xs font-bold uppercase tracking-wider text-green-400 mb-1">Result</p>
+                                <p class="text-base font-bold text-white">10M+ website visitors, 120% consideration increase.</p>
+                            </div>
+                        </div>
+
+                        <!-- Case 4: Sequential Video Strategy -->
+                        <div class="bg-gray-800/90 p-8 rounded-2xl border border-gray-700/80 shadow-lg flex flex-col justify-between">
+                            <div>
+                                <span class="text-blue-400 font-bold text-xs uppercase tracking-widest bg-blue-900/40 px-3 py-1 rounded-full">ENGAGEMENT</span>
+                                <h4 class="text-2xl font-bold text-white mt-4 mb-6">SEQUENTIAL VIDEO STRATEGY</h4>
+                                
+                                <div class="space-y-4 text-sm text-gray-300">
+                                    <div class="border-l-2 border-red-500 pl-4">
+                                        <p class="text-xs font-bold uppercase tracking-wider text-red-400 mb-1">Challenge</p>
+                                        <p>Traditional single-event PR quickly lost public buzz and failed to sustain interest.</p>
+                                    </div>
+                                    <div class="border-l-2 border-blue-500 pl-4">
+                                        <p class="text-xs font-bold uppercase tracking-wider text-blue-400 mb-1">Approach</p>
+                                        <p>Released developer interview videos sequentially paired with synchronized PR articles.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-gray-700 bg-gray-900/40 -mx-6 -mb-6 p-6 rounded-b-2xl">
+                                <p class="text-xs font-bold uppercase tracking-wider text-green-400 mb-1">Result</p>
+                                <p class="text-base font-bold text-white">5,500+ media articles generated, #1 search keyword.</p>
+                            </div>
+                        </div>
+
+                        <!-- Case 5: YouTube Star x Mega Influencer -->
+                        <div class="bg-gray-800/90 p-8 rounded-2xl border border-gray-700/80 shadow-lg flex flex-col justify-between">
+                            <div>
+                                <span class="text-blue-400 font-bold text-xs uppercase tracking-widest bg-blue-900/40 px-3 py-1 rounded-full">INFLUENCER / EARNED ATTENTION</span>
+                                <h4 class="text-2xl font-bold text-white mt-4 mb-6">YOUTUBE STAR × MEGA INFLUENCER</h4>
+                                
+                                <div class="space-y-4 text-sm text-gray-300">
+                                    <div class="border-l-2 border-red-500 pl-4">
+                                        <p class="text-xs font-bold uppercase tracking-wider text-red-400 mb-1">Challenge</p>
+                                        <p>Low personal connection and familiarity with mobile products despite high brand awareness.</p>
+                                    </div>
+                                    <div class="border-l-2 border-blue-500 pl-4">
+                                        <p class="text-xs font-bold uppercase tracking-wider text-blue-400 mb-1">Approach</p>
+                                        <p>Spearheaded a global mega-influencer program partnering with top YouTube creators in US, Brazil, Turkey, and France for authentic content integration.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-gray-700 bg-gray-900/40 -mx-6 -mb-6 p-6 rounded-b-2xl">
+                                <p class="text-xs font-bold uppercase tracking-wider text-green-400 mb-1">Result</p>
+                                <p class="text-base font-bold text-white">65M+ total views globally.</p>
+                            </div>
+                        </div>
+
+                        <!-- Case 6: No.1 App Download -->
+                        <div class="bg-gray-800/90 p-8 rounded-2xl border border-gray-700/80 shadow-lg flex flex-col justify-between">
+                            <div>
+                                <span class="text-blue-400 font-bold text-xs uppercase tracking-widest bg-blue-900/40 px-3 py-1 rounded-full">PRODUCT EXPERIENCE</span>
+                                <h4 class="text-2xl font-bold text-white mt-4 mb-6">NO.1 APP DOWNLOAD</h4>
+                                
+                                <div class="space-y-4 text-sm text-gray-300">
+                                    <div class="border-l-2 border-red-500 pl-4">
+                                        <p class="text-xs font-bold uppercase tracking-wider text-red-400 mb-1">Challenge</p>
+                                        <p>Friction in the customer journey as users couldn't experience the new UX without visiting a store.</p>
+                                    </div>
+                                    <div class="border-l-2 border-blue-500 pl-4">
+                                        <p class="text-xs font-bold uppercase tracking-wider text-blue-400 mb-1">Approach</p>
+                                        <p>Developed and launched a lightweight mobile app on Google Play that simulated core UX remotely.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-gray-700 bg-gray-900/40 -mx-6 -mb-6 p-6 rounded-b-2xl">
+                                <p class="text-xs font-bold uppercase tracking-wider text-green-400 mb-1">Result</p>
+                                <p class="text-base font-bold text-white">No. 1 download ranking in Google Play's "Life" section.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 3: Solutions & Call to Action -->
+        <section id="page-3" class="page-section">
+             <div class="content-wrapper text-center" style="max-width: 1000px;">
+                <h2 class="text-3xl md:text-4xl font-black mb-12 text-blue-400 tracking-wider">WE BUILD. WE SELL. WE GROW.</h2>
+                
+                <!-- Solutions Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left mb-16">
+                    <div class="bg-gray-900/80 p-8 rounded-xl border border-gray-700 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-3 text-white">BRAND INCUBATOR</h3>
+                            <p class="text-blue-300 font-semibold mb-4 text-base">Direct sourcing, direct sales, and brand scaling.</p>
+                        </div>
+                        <p class="text-gray-300 leading-relaxed text-sm border-t border-gray-800 pt-4">
+                            Directly managing sales in the domestic market while expanding high-potential brands into global markets.
+                        </p>
+                    </div>
+
+                    <div class="bg-gray-900/80 p-8 rounded-xl border border-gray-700 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-3 text-white">EXPERT SOLUTION</h3>
+                            <p class="text-blue-300 font-semibold mb-4 text-base">Diagnosing and solving real marketing challenges.</p>
+                        </div>
+                        <p class="text-gray-300 leading-relaxed text-sm border-t border-gray-800 pt-4">
+                            Identifying consumer journey bottlenecks and designing strategies, KPIs, and execution roadmaps.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Final Call to Action Section -->
+                <div class="border-t border-gray-700/80 pt-10">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-2 leading-tight">Let your business<br><span class="text-blue-400">Ian Kim</span>.</h2>
+                    <p class="text-xl mb-6 text-gray-300 font-medium">Let's talk about growth.</p>
+                    
+                    <div class="text-left max-w-md mx-auto space-y-3 text-base bg-gray-900/80 p-6 rounded-xl border border-gray-700 mb-8">
+                        <p><strong>Expert:</strong> Ian Kim</p>
+                        <p><strong>Email:</strong> bom20myun@gmail.com</p>
+                        <p><strong>Phone:</strong> +82 70-8733-0153</p>
+                    </div>
+
+                    <a href="mailto:bom20myun@gmail.com" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-10 rounded-lg text-xl transition-colors shadow-lg">
+                        Get in Touch
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Password Modal -->
+    <div id="password-modal" class="modal-overlay hidden">
+        <div class="bg-gray-800 p-8 rounded-lg shadow-xl w-full max-w-sm text-center">
+            <h3 class="text-2xl font-bold mb-4">Enter Password</h3>
+            <p class="text-gray-400 mb-6">Please enter the password to view the detailed portfolio.</p>
+            <input type="password" id="password-input" class="bg-gray-700 text-white w-full p-3 rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <p id="password-error" class="text-red-500 h-6 mb-4"></p>
+            <div class="flex justify-end space-x-4">
+                <button id="password-cancel" class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-6 rounded-lg transition-colors">Cancel</button>
+                <button id="password-submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition-colors">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Overlay -->
+    <div id="portfolio-overlay" class="portfolio-overlay hidden">
+        <div id="portfolio-content" class="relative w-full h-full flex items-center justify-center"></div>
+        <button id="portfolio-prev" class="portfolio-nav left-4">‹</button>
+        <button id="portfolio-next" class="portfolio-nav right-4">›</button>
+        <button id="portfolio-close" class="portfolio-close">×</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.page-section');
+            
+            const portfolioLink = document.getElementById('portfolio-link');
+            const mobilePortfolioLink = document.getElementById('mobile-portfolio-link');
+            const passwordModal = document.getElementById('password-modal');
+            const passwordInput = document.getElementById('password-input');
+            const passwordSubmit = document.getElementById('password-submit');
+            const passwordCancel = document.getElementById('password-cancel');
+            const passwordError = document.getElementById('password-error');
+            
+            const portfolioOverlay = document.getElementById('portfolio-overlay');
+            const portfolioContent = document.getElementById('portfolio-content');
+            const portfolioClose = document.getElementById('portfolio-close');
+            const portfolioPrev = document.getElementById('portfolio-prev');
+            const portfolioNext = document.getElementById('portfolio-next');
+
+            const portfolioPassword = 'seoulai0111!';
+            const portfolioItems = [
+                { type: 'image', src: 'https://gi.esmplus.com/meme153/22.png' },
+                { type: 'image', src: 'https://gi.esmplus.com/meme153/20.png' },
+                { type: 'image', src: 'https://gi.esmplus.com/meme153/NO-1-APP-CREATION-and-DOWNLOAD.png' },
+                { type: 'image', src: 'https://gi.esmplus.com/meme153/24.png' },
+                { type: 'image', src: 'https://gi.esmplus.com/meme153/Consumer-Decision-Journey.png' },
+                { type: 'video', src: 'https://www.youtube.com/embed/qTzylQZYRFg' },
+                { type: 'video', src: 'https://www.youtube.com/embed/y9JNaAmym4U' },
+                { type: 'image', src: 'https://gi.esmplus.com/meme153/Brand-Film-Jason-Statham.png' },
+                { type: 'image', src: 'https://gi.esmplus.com/meme153/YOUTUBE-X-MEGA-INFULUENCER.png' },
+                { type: 'image', src: 'https://gi.esmplus.com/meme153/FACEBOOK-INFLUENCER-SEEDING.png' },
+                { type: 'image', src: 'https://gi.esmplus.com/meme153/GOOGLE-and-META-X-BTS.png' },
+                { type: 'image', src: 'https://gi.esmplus.com/meme153/21.png' },
+                { type: 'image', src: 'https://gi.esmplus.com/meme153/nqzxez8lmibbb3v.png' },
+            ];
+            let currentPortfolioIndex = 0;
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                             if (link.getAttribute('href') === `#${entry.target.id}`) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+            
+            const openPasswordModal = (e) => {
+                e.preventDefault();
+                passwordInput.value = '';
+                passwordError.textContent = '';
+                passwordModal.classList.remove('hidden');
+                passwordInput.focus();
+                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            };
+
+            portfolioLink.addEventListener('click', openPasswordModal);
+            mobilePortfolioLink.addEventListener('click', openPasswordModal);
+
+            passwordCancel.addEventListener('click', () => {
+                passwordModal.classList.add('hidden');
+            });
+
+            const checkPassword = () => {
+                if (passwordInput.value === portfolioPassword) {
+                    passwordModal.classList.add('hidden');
+                    currentPortfolioIndex = 0;
+                    updatePortfolioContent();
+                    portfolioOverlay.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    passwordError.textContent = 'Incorrect password.';
+                }
+            };
+
+            passwordSubmit.addEventListener('click', checkPassword);
+            passwordInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    checkPassword();
+                }
+            });
+
+            portfolioClose.addEventListener('click', () => {
+                portfolioOverlay.classList.add('hidden');
+                portfolioContent.innerHTML = '';
+                document.body.style.overflow = '';
+            });
+
+            const updatePortfolioContent = () => {
+                portfolioContent.innerHTML = '';
+                const item = portfolioItems[currentPortfolioIndex];
+                if (item.type === 'image') {
+                    const img = document.createElement('img');
+                    img.src = item.src;
+                    img.className = 'portfolio-image';
+                    portfolioContent.appendChild(img);
+                } else if (item.type === 'video') {
+                    const videoWrapper = document.createElement('div');
+                    videoWrapper.className = 'w-full max-w-4xl aspect-video';
+                    const iframe = document.createElement('iframe');
+                    iframe.src = item.src;
+                    iframe.frameborder = '0';
+                    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+                    iframe.allowfullscreen = true;
+                    iframe.className = 'w-full h-full rounded-lg';
+                    videoWrapper.appendChild(iframe);
+                    portfolioContent.appendChild(videoWrapper);
+                }
+            };
+
+            portfolioPrev.addEventListener('click', () => {
+                currentPortfolioIndex = (currentPortfolioIndex - 1 + portfolioItems.length) % portfolioItems.length;
+                updatePortfolioContent();
+            });
+
+            portfolioNext.addEventListener('click', () => {
+                currentPortfolioIndex = (currentPortfolioIndex + 1 + portfolioItems.length) % portfolioItems.length;
+                updatePortfolioContent();
+            });
+        });
+    </script>
+</body>
+</html>
